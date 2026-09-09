@@ -1,0 +1,693 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klinik Sehat Bersama — Klinik Keluarga di Jakarta Selatan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#top">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <path d="M15 26C15 26 4 19.5 4 11.8C4 7.6 7.2 5 10.4 5C12.6 5 14.3 6.2 15 7.9C15.7 6.2 17.4 5 19.6 5C22.8 5 26 7.6 26 11.8C26 19.5 15 26 15 26Z" fill="#1F5C4E"/>
+        <path d="M9 13.5H12L13.5 10L16 17L17.5 13.5H21" stroke="#F3F6F2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Sehat Bersama</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#layanan">Layanan</a>
+      <a href="#kenapa">Kenapa Kami</a>
+      <a href="#dokter">Dokter</a>
+      <a href="#artikel">Artikel</a>
+      <a href="#lokasi">Jam & Lokasi</a>
+      <a class="btn btn-primary" href="#janji">Buat Janji</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="float-shape shape-1"></div>
+    <div class="float-shape shape-2"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Klinik keluarga yang mengenal Anda, bukan sekadar nomor antrean.</h1>
+        <p class="lede">Kami melayani warga Jagakarsa dan sekitarnya sejak 2013 — dari periksa demam anak sampai kontrol tekanan darah orang tua, dengan dokter yang sama setiap kali Anda datang.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#janji">Buat janji hari ini</a>
+          <a class="btn btn-ghost" href="#layanan">Lihat layanan</a>
+        </div>
+        <div class="stat-row">
+          <div><span class="stat-num" data-target="12" data-suffix=" thn">0 thn</span><span class="stat-label">melayani warga sekitar</span></div>
+          <div><span class="stat-num" data-target="9" data-suffix="">0</span><span class="stat-label">dokter & spesialis tetap</span></div>
+          <div><span class="stat-num">07.00–20.00</span><span class="stat-label">buka setiap hari Senin–Sabtu</span></div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Cek jadwal dokter</h3>
+        <p class="sub">Pilih hari untuk lihat dokter yang praktik.</p>
+        <div class="day-picker" id="dayPicker">
+          <button class="day-btn" data-day="senin">Sen</button>
+          <button class="day-btn" data-day="selasa">Sel</button>
+          <button class="day-btn active" data-day="rabu">Rab</button>
+          <button class="day-btn" data-day="kamis">Kam</button>
+          <button class="day-btn" data-day="jumat">Jum</button>
+          <button class="day-btn" data-day="sabtu">Sab</button>
+          <button class="day-btn" data-day="minggu">Min</button>
+        </div>
+        <div id="doctorSlots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYANAN -->
+  <section id="layanan">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Satu klinik, hampir semua kebutuhan dasar keluarga</h2>
+        <p>Kami merancang layanan supaya Anda tidak perlu bolak-balik ke tempat berbeda untuk hal-hal yang sering dibutuhkan.</p>
+      </div>
+
+      <div class="service-row">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 4 15.5 4 9.8C4 6.6 6.4 4.5 9 4.5C10.5 4.5 11.6 5.3 12 6.4C12.4 5.3 13.5 4.5 15 4.5C17.6 4.5 20 6.6 20 9.8C20 15.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3>Pemeriksaan umum</h3>
+        <div>
+          <p>Konsultasi keluhan sehari-hari — demam, batuk, sakit kepala, cek tekanan darah — ditangani dokter umum tanpa perlu rujukan.</p>
+          <span class="service-meta">Buka setiap hari, tanpa perlu janji sebelumnya</span>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M5 20C5 16.5 8 14.5 12 14.5C16 14.5 19 16.5 19 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <h3>Kesehatan anak</h3>
+        <div>
+          <p>Tumbuh kembang, imunisasi rutin sesuai jadwal Kemenkes, dan penanganan keluhan anak oleh dokter spesialis anak.</p>
+          <span class="service-meta">Praktik Selasa, Kamis, Sabtu</span>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none"><path d="M12 3V12M12 12L17 17M12 12L7 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3>Vaksinasi</h3>
+        <div>
+          <p>Vaksin anak, vaksin dewasa (influenza, HPV), dan booster — lengkap dengan kartu catatan yang bisa Anda bawa pulang.</p>
+          <span class="service-meta">Jadwal fleksibel, konsultasi dulu dengan perawat</span>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none"><path d="M9 3H15M10 3V8L5 18C4.5 19 5 20 6.2 20H17.8C19 20 19.5 19 19 18L14 8V3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <h3>Kesehatan gigi</h3>
+        <div>
+          <p>Tambal, scaling, cabut gigi, hingga konsultasi ortodonti untuk anak dan dewasa oleh dokter gigi tetap kami.</p>
+          <span class="service-meta">Praktik Senin, Rabu, Jumat</span>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none"><rect x="7" y="3" width="10" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M9 9V19C9 19.5 9.5 20 10 20H14C14.5 20 15 19.5 15 19V9" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3>Laboratorium</h3>
+        <div>
+          <p>Cek darah lengkap, gula darah, kolesterol, dan tes urine dengan hasil dikirim ke WhatsApp dalam 1 hari kerja.</p>
+          <span class="service-meta">Ambil sampel mulai jam 07.00, sebelum sarapan</span>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 8 6 13C6 16.3 8.7 19 12 19C15.3 19 18 16.3 18 13C18 8 12 2 12 2Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3>Konsultasi gizi</h3>
+        <div>
+          <p>Rencana makan untuk diabetes, kolesterol tinggi, atau menurunkan berat badan, disusun bersama ahli gizi klinis.</p>
+          <span class="service-meta">Sesi 30 menit, bisa lanjut lewat WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KENAPA KAMI -->
+  <section id="kenapa" style="background:var(--paper-deep);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Kenapa keluarga sekitar sini memilih kami</h2>
+      </div>
+
+      <div class="alt-block">
+        <div class="alt-text">
+          <h3>Dokter yang sama, setiap kunjungan</h3>
+          <p>Kami membatasi jumlah pasien per dokter supaya Anda bisa langsung cerita perkembangan kondisi, tanpa mengulang riwayat dari awal setiap kali datang.</p>
+        </div>
+        <div class="alt-visual" style="background:var(--mint);">
+          <svg width="70%" viewBox="0 0 200 160" fill="none">
+            <rect x="20" y="30" width="160" height="100" rx="14" fill="#1F5C4E"/>
+            <circle cx="70" cy="80" r="22" fill="#F3F6F2"/>
+            <circle cx="130" cy="80" r="22" fill="#D98E2B"/>
+            <path d="M60 105C60 95 80 95 80 105" stroke="#1F5C4E" stroke-width="3" stroke-linecap="round"/>
+            <path d="M120 105C120 95 140 95 140 105" stroke="#B9721A" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="alt-block reverse">
+        <div class="alt-text">
+          <h3>Rekam medis rapi, bisa diakses lewat WhatsApp</h3>
+          <p>Riwayat pemeriksaan, hasil lab, dan resep tersimpan digital. Cukup kirim pesan ke nomor klinik untuk minta salinan kapan pun dibutuhkan.</p>
+        </div>
+        <div class="alt-visual" style="background:#F0E4CF;">
+          <svg width="60%" viewBox="0 0 160 180" fill="none">
+            <rect x="20" y="10" width="120" height="160" rx="12" fill="#fff" stroke="#D98E2B" stroke-width="3"/>
+            <line x1="38" y1="40" x2="122" y2="40" stroke="#1F5C4E" stroke-width="4" stroke-linecap="round"/>
+            <line x1="38" y1="60" x2="122" y2="60" stroke="#CBD6C9" stroke-width="4" stroke-linecap="round"/>
+            <line x1="38" y1="80" x2="100" y2="80" stroke="#CBD6C9" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="120" cy="130" r="22" fill="#1F5C4E"/>
+            <path d="M111 130L118 137L131 122" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="alt-block">
+        <div class="alt-text">
+          <h3>Biaya jelas sebelum tindakan</h3>
+          <p>Kami selalu memberi tahu perkiraan biaya sebelum pemeriksaan atau tindakan dimulai — tidak ada kejutan di kasir.</p>
+        </div>
+        <div class="alt-visual" style="background:#DCE8DE;">
+          <svg width="60%" viewBox="0 0 180 160" fill="none">
+            <rect x="30" y="20" width="120" height="80" rx="10" fill="#fff" stroke="#1F5C4E" stroke-width="3"/>
+            <circle cx="90" cy="60" r="20" fill="#D98E2B"/>
+            <text x="90" y="67" font-family="Fraunces, serif" font-size="20" fill="#fff" text-anchor="middle">Rp</text>
+            <path d="M60 120C60 110 120 110 120 120" stroke="#1F5C4E" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOKTER -->
+  <section id="dokter">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Tim dokter tetap kami</h2>
+        <p>Semua dokter di bawah ini praktik langsung di klinik, bukan lewat sistem giliran dari luar.</p>
+      </div>
+      <div class="doctor-scroll-wrap">
+        <div class="doctor-scroll" id="doctorScroll">
+          <div class="doctor-card">
+            <div class="doctor-photo" style="background:#1F5C4E;">AP</div>
+            <h4>dr. Amanda Putri</h4>
+            <p class="role">Dokter Umum</p>
+            <p>Praktik sejak 2015, fokus pada pemeriksaan rutin dan penyakit tidak menular seperti hipertensi.</p>
+          </div>
+          <div class="doctor-card">
+            <div class="doctor-photo" style="background:#D98E2B;">RP</div>
+            <h4>dr. Rizky Pratama, Sp.A</h4>
+            <p class="role">Spesialis Anak</p>
+            <p>Menangani tumbuh kembang dan imunisasi anak. Sabar menjelaskan ke orang tua yang baru pertama kali.</p>
+          </div>
+          <div class="doctor-card">
+            <div class="doctor-photo" style="background:#7A8B7F;">SN</div>
+            <h4>drg. Siti Nurhaliza</h4>
+            <p class="role">Dokter Gigi</p>
+            <p>Ahli dalam perawatan gigi anak dan dewasa, dari tambal biasa sampai konsultasi kawat gigi.</p>
+          </div>
+          <div class="doctor-card">
+            <div class="doctor-photo" style="background:#B9721A;">BW</div>
+            <h4>dr. Bagus Wirawan</h4>
+            <p class="role">Gizi Klinis</p>
+            <p>Menyusun pola makan untuk pasien diabetes dan kolesterol, dengan pendekatan yang realistis.</p>
+          </div>
+          <div class="doctor-card">
+            <div class="doctor-photo" style="background:#1F5C4E;">NF</div>
+            <h4>dr. Nadia Fitriani</h4>
+            <p class="role">Dokter Umum</p>
+            <p>Menangani konsultasi kesehatan perempuan dan pemeriksaan sebelum menikah atau hamil.</p>
+          </div>
+        </div>
+        <div class="scroll-nav">
+          <button class="scroll-btn" id="scrollLeft" aria-label="Geser ke kiri">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="scroll-btn" id="scrollRight" aria-label="Geser ke kanan">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section>
+    <div class="wrap">
+      <div class="testi-wrap">
+        <div class="testi-track">
+          <div class="testi-slide active" data-index="0">
+            <blockquote>"Anak saya takut ke dokter, tapi dr. Rizky selalu ajak ngobrol dulu sebelum periksa. Sekarang malah senang kalau diajak kontrol."</blockquote>
+            <p class="testi-who">Ibu Ratna, warga Jagakarsa, pasien sejak 2019</p>
+          </div>
+          <div class="testi-slide" data-index="1">
+            <blockquote>"Saya kontrol tekanan darah tiap bulan di sini. Enaknya, dokternya selalu sama jadi tahu persis riwayat obat saya."</blockquote>
+            <p class="testi-who">Bapak Hendra, 58 tahun</p>
+          </div>
+          <div class="testi-slide" data-index="2">
+            <blockquote>"Hasil lab dikirim ke WhatsApp beneran sehari setelah tes. Tidak perlu bolak-balik lagi cuma untuk ambil hasil."</blockquote>
+            <p class="testi-who">Sarah, 27 tahun</p>
+          </div>
+        </div>
+        <div class="testi-dots" id="testiDots">
+          <button class="testi-dot active" data-index="0"></button>
+          <button class="testi-dot" data-index="1"></button>
+          <button class="testi-dot" data-index="2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTIKEL -->
+  <section id="artikel" style="background:var(--paper-deep);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Bacaan seputar kesehatan keluarga</h2>
+        <p>Ditulis oleh tim dokter kami, diperbarui setiap bulan.</p>
+      </div>
+      <div class="articles-grid">
+        <div class="article-feature">
+          <span class="article-tag">Jantung & Pembuluh Darah</span>
+          <h3>Lima kebiasaan kecil yang benar-benar menjaga jantung tetap sehat</h3>
+          <p>Bukan soal olahraga berat setiap hari — dr. Amanda menjelaskan perubahan kecil yang paling sering berhasil dijalankan pasiennya, mulai dari cara duduk saat bekerja sampai jam tidur yang konsisten.</p>
+        </div>
+        <div>
+          <div class="article-list-item">
+            <span class="article-num">01</span>
+            <div>
+              <h4>Kapan anak sebenarnya perlu vaksin booster?</h4>
+              <span>dr. Rizky Pratama, Sp.A</span>
+            </div>
+          </div>
+          <div class="article-list-item">
+            <span class="article-num">02</span>
+            <div>
+              <h4>Tekanan darah tinggi tanpa gejala, kenapa tetap berbahaya</h4>
+              <span>dr. Amanda Putri</span>
+            </div>
+          </div>
+          <div class="article-list-item">
+            <span class="article-num">03</span>
+            <div>
+              <h4>Pola makan sederhana untuk gula darah yang lebih stabil</h4>
+              <span>dr. Bagus Wirawan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap" style="max-width:820px;">
+      <div class="section-head">
+        <h2>Pertanyaan yang sering ditanyakan</h2>
+      </div>
+      <div id="faqList">
+        <div class="faq-item">
+          <button class="faq-q"><span>Apakah harus buat janji dulu sebelum datang?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Untuk pemeriksaan umum, Anda bisa datang langsung. Untuk dokter spesialis anak, gigi, atau gizi, kami sarankan buat janji dulu supaya tidak menunggu lama.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Apakah klinik menerima BPJS?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Kami menerima BPJS untuk pemeriksaan umum dan kesehatan anak. Untuk layanan gigi dan gizi klinis saat ini masih dengan biaya mandiri.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Berapa lama hasil lab keluar?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Pemeriksaan darah rutin dan gula darah biasanya selesai dalam 1 hari kerja, dikirim langsung ke nomor WhatsApp yang terdaftar.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Apakah bisa konsultasi tanpa datang langsung?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Untuk keluhan ringan atau kontrol lanjutan, Anda bisa konsultasi lewat WhatsApp dengan dokter yang sama seperti kunjungan sebelumnya.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOKASI -->
+  <section id="lokasi" style="background:var(--paper-deep);">
+    <div class="wrap location-grid">
+      <div>
+        <h2 style="font-size:clamp(26px,3.4vw,34px); margin-bottom:20px;">Jam praktik & lokasi</h2>
+        <table class="schedule-table" id="scheduleTable">
+          <tr data-day="senin"><td>Senin</td><td>07.00 – 20.00</td></tr>
+          <tr data-day="selasa"><td>Selasa</td><td>07.00 – 20.00</td></tr>
+          <tr data-day="rabu"><td>Rabu</td><td>07.00 – 20.00</td></tr>
+          <tr data-day="kamis"><td>Kamis</td><td>07.00 – 20.00</td></tr>
+          <tr data-day="jumat"><td>Jumat</td><td>07.00 – 20.00</td></tr>
+          <tr data-day="sabtu"><td>Sabtu</td><td>08.00 – 17.00</td></tr>
+          <tr data-day="minggu"><td>Minggu</td><td>08.00 – 14.00 (gawat darurat saja)</td></tr>
+        </table>
+        <div class="addr-line">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22C12 22 5 14.5 5 9.5C5 5.9 8.1 3 12 3C15.9 3 19 5.9 19 9.5C19 14.5 12 22 12 22Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
+          <p>Jl. Melati Raya No. 12, Jagakarsa, Jakarta Selatan. Dua menit jalan kaki dari halte TransJakarta Jagakarsa.</p>
+        </div>
+        <div class="addr-line">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6C4 5 5 4 6 4H8L10 9L8 11C9 13.5 10.5 15 13 16L15 14L20 16V18C20 19 19 20 18 20C10 20 4 14 4 6Z" stroke="currentColor" stroke-width="1.6"/></svg>
+          <p>(021) 7654 321 — atau WhatsApp 0812 3456 7890 untuk pertanyaan dan janji temu.</p>
+        </div>
+      </div>
+      <div class="map-box">
+        <svg width="100%" height="100%" viewBox="0 0 300 225" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="225" fill="#DCE8DE"/>
+          <path d="M0 140 L80 130 L140 150 L200 120 L300 135 L300 225 L0 225 Z" fill="#CBDAC8"/>
+          <path d="M0 60 L100 70 L180 50 L300 65" stroke="#B7C6B4" stroke-width="10" fill="none"/>
+          <circle cx="150" cy="100" r="10" fill="#D98E2B"/>
+          <circle class="map-pulse" cx="150" cy="100" r="10" fill="#D98E2B" opacity="0.5" style="transform-origin:150px 100px;"/>
+          <path d="M150 100 L150 82" stroke="#B9721A" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / FORM -->
+  <section id="janji" class="cta-section">
+    <div class="wrap cta-grid">
+      <div>
+        <h2>Siap dijadwalkan?</h2>
+        <p>Isi form ini, tim kami akan menghubungi Anda lewat WhatsApp dalam 1 jam kerja untuk konfirmasi jadwal.</p>
+      </div>
+      <form id="bookingForm" novalidate>
+        <div class="form-row">
+          <div>
+            <label for="nama">Nama lengkap</label>
+            <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
+          </div>
+          <div>
+            <label for="wa">Nomor WhatsApp</label>
+            <input type="tel" id="wa" name="wa" placeholder="0812xxxxxxx" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="layanan-select">Layanan</label>
+            <select id="layanan-select" name="layanan">
+              <option>Pemeriksaan umum</option>
+              <option>Kesehatan anak</option>
+              <option>Vaksinasi</option>
+              <option>Kesehatan gigi</option>
+              <option>Laboratorium</option>
+              <option>Konsultasi gizi</option>
+            </select>
+          </div>
+          <div>
+            <label for="tanggal">Tanggal diinginkan</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div>
+            <label for="catatan">Catatan (opsional)</label>
+            <textarea id="catatan" name="catatan" rows="3" placeholder="Ceritakan keluhan singkat, jika ada"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Kirim permintaan janji</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="#top">
+        <svg width="26" height="26" viewBox="0 0 30 30" fill="none">
+          <path d="M15 26C15 26 4 19.5 4 11.8C4 7.6 7.2 5 10.4 5C12.6 5 14.3 6.2 15 7.9C15.7 6.2 17.4 5 19.6 5C22.8 5 26 7.6 26 11.8C26 19.5 15 26 15 26Z" fill="#1F5C4E"/>
+        </svg>
+        <span>Sehat Bersama</span>
+      </a>
+      <p style="margin-top:14px; color:var(--ink-soft); font-size:14.5px; max-width:32ch;">Klinik keluarga di Jagakarsa, Jakarta Selatan. Buka setiap hari untuk warga sekitar.</p>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h5>Klinik</h5>
+        <a href="#layanan">Layanan</a>
+        <a href="#dokter">Dokter</a>
+        <a href="#artikel">Artikel</a>
+      </div>
+      <div class="foot-col">
+        <h5>Kunjungi</h5>
+        <a href="#lokasi">Jam & lokasi</a>
+        <a href="#janji">Buat janji</a>
+      </div>
+      <div class="foot-col">
+        <h5>Kontak</h5>
+        <a href="tel:0217654321">(021) 7654 321</a>
+        <a href="#">WhatsApp klinik</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    © 2026 Klinik Sehat Bersama. Jl. Melati Raya No. 12, Jagakarsa, Jakarta Selatan.
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Kembali ke atas">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5L6 11M12 5L18 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script>
+(function(){
+  // ---- Mobile nav toggle ----
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', function(){
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){ navLinks.classList.remove('open'); });
+  });
+
+  // ---- Jadwal dokter widget ----
+  const scheduleData = {
+    senin:   [{i:'AP', n:'dr. Amanda Putri', r:'Dokter Umum', t:'07.00–14.00', c:'#1F5C4E'}, {i:'SN', n:'drg. Siti Nurhaliza', r:'Dokter Gigi', t:'13.00–19.00', c:'#7A8B7F'}],
+    selasa:  [{i:'AP', n:'dr. Amanda Putri', r:'Dokter Umum', t:'07.00–14.00', c:'#1F5C4E'}, {i:'RP', n:'dr. Rizky Pratama, Sp.A', r:'Spesialis Anak', t:'14.00–19.00', c:'#D98E2B'}],
+    rabu:    [{i:'NF', n:'dr. Nadia Fitriani', r:'Dokter Umum', t:'07.00–14.00', c:'#1F5C4E'}, {i:'SN', n:'drg. Siti Nurhaliza', r:'Dokter Gigi', t:'13.00–19.00', c:'#7A8B7F'}],
+    kamis:   [{i:'AP', n:'dr. Amanda Putri', r:'Dokter Umum', t:'07.00–14.00', c:'#1F5C4E'}, {i:'RP', n:'dr. Rizky Pratama, Sp.A', r:'Spesialis Anak', t:'14.00–19.00', c:'#D98E2B'}],
+    jumat:   [{i:'NF', n:'dr. Nadia Fitriani', r:'Dokter Umum', t:'07.00–14.00', c:'#1F5C4E'}, {i:'SN', n:'drg. Siti Nurhaliza', r:'Dokter Gigi', t:'13.00–19.00', c:'#7A8B7F'}],
+    sabtu:   [{i:'AP', n:'dr. Amanda Putri', r:'Dokter Umum', t:'08.00–14.00', c:'#1F5C4E'}, {i:'RP', n:'dr. Rizky Pratama, Sp.A', r:'Spesialis Anak', t:'09.00–13.00', c:'#D98E2B'}, {i:'BW', n:'dr. Bagus Wirawan', r:'Gizi Klinis', t:'10.00–14.00', c:'#B9721A'}],
+    minggu:  []
+  };
+
+  const dayPicker = document.getElementById('dayPicker');
+  const doctorSlots = document.getElementById('doctorSlots');
+  const scheduleTable = document.getElementById('scheduleTable');
+
+  function renderSlots(day){
+    const list = scheduleData[day] || [];
+    if(list.length === 0){
+      doctorSlots.innerHTML = '<p class="empty-note">Klinik hanya melayani gawat darurat pada hari ini.</p>';
+      return;
+    }
+    doctorSlots.innerHTML = list.map(function(d){
+      return '<div class="doctor-slot">' +
+        '<div class="avatar" style="background:' + d.c + ';">' + d.i + '</div>' +
+        '<div class="slot-info"><b>' + d.n + '</b><span>' + d.r + '</span></div>' +
+        '<div class="slot-time">' + d.t + '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  dayPicker.addEventListener('click', function(e){
+    const btn = e.target.closest('.day-btn');
+    if(!btn) return;
+    dayPicker.querySelectorAll('.day-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    renderSlots(btn.dataset.day);
+  });
+  renderSlots('rabu');
+
+  // Highlight today's row in schedule table
+  const dayMap = ['minggu','senin','selasa','rabu','kamis','jumat','sabtu'];
+  const todayKey = dayMap[new Date().getDay()];
+  const todayRow = scheduleTable.querySelector('tr[data-day="' + todayKey + '"]');
+  if(todayRow) todayRow.classList.add('today');
+
+  // ---- Scroll progress bar ----
+  const progressBar = document.getElementById('scrollProgress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const height = h.scrollHeight - h.clientHeight;
+    progressBar.style.width = (height > 0 ? (scrolled / height) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  // ---- Back to top ----
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){
+    backToTop.classList.toggle('show', window.scrollY > 500);
+  }, {passive:true});
+  backToTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // ---- Scroll reveal with stagger ----
+  const revealGroups = [
+    '.section-head',
+    '.service-row',
+    '.alt-block',
+    '.doctor-card',
+    '.article-feature, .article-list-item',
+    '.faq-item',
+    '.hero-card'
+  ];
+  revealGroups.forEach(function(selector){
+    const els = document.querySelectorAll(selector);
+    els.forEach(function(el, i){
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i % 5) * 90 + 'ms';
+    });
+  });
+
+  const counters = document.querySelectorAll('.stat-num[data-target]');
+  function animateCounter(el){
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if(progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        const counter = entry.target.querySelector ? entry.target.querySelector('.stat-num[data-target]') : null;
+        if(counter && !counter.dataset.done){
+          counter.dataset.done = '1';
+          animateCounter(counter);
+        }
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+
+  document.querySelectorAll('.reveal').forEach(function(el){
+    revealObserver.observe(el);
+  });
+  counters.forEach(function(c){
+    revealObserver.observe(c.closest('.hero-card') || c);
+  });
+
+  // ---- Doctor horizontal scroll ----
+  const doctorScroll = document.getElementById('doctorScroll');
+  document.getElementById('scrollLeft').addEventListener('click', function(){
+    doctorScroll.scrollBy({left:-280, behavior:'smooth'});
+  });
+  document.getElementById('scrollRight').addEventListener('click', function(){
+    doctorScroll.scrollBy({left:280, behavior:'smooth'});
+  });
+
+  // ---- Testimoni slider ----
+  const slides = document.querySelectorAll('.testi-slide');
+  const dots = document.querySelectorAll('.testi-dot');
+  let current = 0;
+  let autoTimer;
+
+  function showSlide(idx){
+    const prevActive = document.querySelector('.testi-slide.active');
+    if(prevActive) prevActive.classList.add('leaving');
+    slides.forEach(function(s, i){ s.classList.toggle('active', i === idx); });
+    dots.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
+    setTimeout(function(){
+      slides.forEach(function(s){ if(!s.classList.contains('active')) s.classList.remove('leaving'); });
+    }, 550);
+    current = idx;
+  }
+  function nextSlide(){ showSlide((current + 1) % slides.length); }
+  function startAuto(){ autoTimer = setInterval(nextSlide, 6000); }
+  function resetAuto(){ clearInterval(autoTimer); startAuto(); }
+
+  dots.forEach(function(dot){
+    dot.addEventListener('click', function(){
+      showSlide(parseInt(dot.dataset.index, 10));
+      resetAuto();
+    });
+  });
+  startAuto();
+
+  // ---- FAQ accordion ----
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ---- Booking form ----
+  const form = document.getElementById('bookingForm');
+  const formMsg = document.getElementById('formMsg');
+  const minDateField = document.getElementById('tanggal');
+  const today = new Date().toISOString().split('T')[0];
+  minDateField.setAttribute('min', today);
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nama = document.getElementById('nama').value.trim();
+    const wa = document.getElementById('wa').value.trim();
+    const tanggal = document.getElementById('tanggal').value;
+    const waPattern = /^[0-9+ ]{9,15}$/;
+
+    formMsg.classList.remove('show', 'ok', 'err');
+
+    if(nama.length < 3){
+      formMsg.textContent = 'Mohon isi nama lengkap Anda (minimal 3 huruf).';
+      formMsg.classList.add('show', 'err');
+      return;
+    }
+    if(!waPattern.test(wa)){
+      formMsg.textContent = 'Nomor WhatsApp belum valid. Contoh: 081234567890';
+      formMsg.classList.add('show', 'err');
+      return;
+    }
+    if(!tanggal){
+      formMsg.textContent = 'Silakan pilih tanggal yang diinginkan.';
+      formMsg.classList.add('show', 'err');
+      return;
+    }
+
+    formMsg.textContent = 'Permintaan janji terkirim. Tim kami akan menghubungi ' + wa + ' lewat WhatsApp dalam 1 jam kerja.';
+    formMsg.classList.add('show', 'ok');
+    form.reset();
+  });
+})();
+</script>
+
+</body>
+</html>
