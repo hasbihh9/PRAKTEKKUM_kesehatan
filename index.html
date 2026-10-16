@@ -664,25 +664,7 @@
     const tanggal = document.getElementById('tanggal').value;
     const waPattern = /^[0-9+ ]{9,15}$/;
 
-    formMsg.classList.remove('show', 'ok', 'err');
-
-    if(nama.length < 3){
-      formMsg.textContent = 'Mohon isi nama lengkap Anda (minimal 3 huruf).';
-      formMsg.classList.add('show', 'err');
-      return;
-    }
-    if(!waPattern.test(wa)){
-      formMsg.textContent = 'Nomor WhatsApp belum valid. Contoh: 081234567890';
-      formMsg.classList.add('show', 'err');
-      return;
-    }
-    if(!tanggal){
-      formMsg.textContent = 'Silakan pilih tanggal yang diinginkan.';
-      formMsg.classList.add('show', 'err');
-      return;
-    }
-
-    formMsg.textContent = 'Permintaan janji terkirim. Tim kami akan menghubungi ' + wa + ' lewat WhatsApp dalam 1 jam kerja.';
+   
     formMsg.classList.add('show', 'ok');
     form.reset();
   });
